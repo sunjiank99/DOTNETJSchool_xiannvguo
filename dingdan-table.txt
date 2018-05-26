@@ -1,0 +1,684 @@
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('yl_GoodsOrder')
+            and   type = 'U')
+   drop table yl_GoodsOrder
+go
+
+/*==============================================================*/
+/* Table: yl_GoodsOrder                                         */
+/*==============================================================*/
+create table yl_GoodsOrder (
+   OrderCode            int                  identity,
+   OrderNo              varchar(30)          null,
+   UserCode             int                  null,
+   UserTel              varchar(20)          null,
+   PickPointCode        int                  null,
+   PickPointName        varchar(30)          null,
+   PickCodeType         tinyint              null,
+   PickCode             varchar(30)          null,
+   OrderState           tinyint              null,
+   ShoppingState        tinyint              null,
+   PayState             tinyint              null,
+   ShoppingType         tinyint              null,
+   PayType              tinyint              null,
+   RecevieName          varchar(20)          null,
+   UserNiChen           varchar(20)          null,
+   ProCode              varchar(20)          null,
+   CiytCode             varchar(20)          null,
+   DistrictCode         varchar(20)          null,
+   Address              varchar(80)          null,
+   ReceiveTel           varchar(20)          null,
+   BuildingCode         int                  null,
+   BuildingName         varchar(20)          null,
+   GoodsMoney           decimal(8,2)         null,
+   ShoppingMoney        decimal(8,2)         null,
+   BalanceMoney         decimal(8,2)         null,
+   Integral             int                  null,
+   BasicMoney           decimal(8,2)         null,
+   IntegralMoney        decimal(8,2)         null,
+   CouponsCode          varchar(20)          null,
+   CouponsMoney         decimal(8,2)         null,
+   OrderMoney           decimal(8,2)         null,
+   OrderPayMoney        decimal(8,2)         null,
+   OrderSource          tinyint              null,
+   OrderTime            datetime             null,
+   ConfirmTime          datetime             null,
+   PayTime              datetime             null,
+   ShoppingTime         datetime             null,
+   ShoppingNo           varchar(30)          null,
+   StockUperCode        varchar(20)          null,
+   CheckerCode          varchar(20)          null,
+   ShopperCode          varchar(20)          null,
+   RecoTel              varchar(20)          null,
+   RecoCode             varchar(20)          null,
+   constraint PK_YL_GOODSORDER primary key (OrderCode)
+)
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '用户订单',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单详细信息自增id',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单号',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderNo'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '用户编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'UserCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '下单人',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'UserTel'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '提货点编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PickPointCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '提货点名称',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PickPointName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '提货码类型',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PickCodeType'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '提货码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PickCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单状态',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderState'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '配送状态',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShoppingState'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '支付状态',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PayState'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '配送方式',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShoppingType'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '支付方式',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PayType'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '收货人姓名',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'RecevieName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '昵称',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'UserNiChen'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '省份',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ProCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '城市',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'CiytCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '地区',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'DistrictCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '详细地址',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'Address'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '收货人的电话',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ReceiveTel'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '小区编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'BuildingCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '小区名称',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'BuildingName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品总金额',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'GoodsMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '配送费用',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShoppingMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '已使用余额',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'BalanceMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '使用的积分的数量',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'Integral'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '水果基金',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'BasicMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '使用积分抵扣的金额',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'IntegralMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '优惠券券码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'CouponsCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '优惠券抵扣的费用',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'CouponsMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单总金额',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '应付款金额',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderPayMoney'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单来源',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderSource'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单生成时间',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'OrderTime'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单确认时间',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ConfirmTime'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单支付时间',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'PayTime'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单配送时间',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShoppingTime'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '发货单号',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShoppingNo'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '备货员编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'StockUperCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '检验员编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'CheckerCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '配送员编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'ShopperCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '推荐人账号',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'RecoTel'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '推荐码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrder', 'column', 'RecoCode'
+go
+
+
+-------------------------------
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('yl_GoodsOrderInfo')
+            and   type = 'U')
+   drop table yl_GoodsOrderInfo
+go
+
+/*==============================================================*/
+/* Table: yl_GoodsOrderInfo                                     */
+/*==============================================================*/
+create table yl_GoodsOrderInfo (
+   Id                   int                  identity,
+   OrderNo              varchar(30)          null,
+   GoodsCode            int                  null,
+   GoodsName            varchar(30)          null,
+   GoodsNum             int                  null,
+   RePrice              decimal(8,2)         null,
+   SalePrice            decimal(8,2)         null,
+   RecoCode             varchar(20)          null,
+   DistributeState      tinyint              null,
+   PubTime              datetime             null
+)
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单商品信息',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   'ID',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'Id'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '订单编码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'OrderNo'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品的的id',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'GoodsCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品的名称',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'GoodsName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品的购买数量',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'GoodsNum'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品的市场售价',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'RePrice'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '商品的本店售价',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'SalePrice'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '推荐码',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'RecoCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '计提状态',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'DistributeState'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '计提时间',
+   'user', @CurrentUser, 'table', 'yl_GoodsOrderInfo', 'column', 'PubTime'
+go
+
+------------------------------------------
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('yl_ManageAccount')
+            and   type = 'U')
+   drop table yl_ManageAccount
+go
+
+/*==============================================================*/
+/* Table: yl_ManageAccount                                      */
+/*==============================================================*/
+create table yl_ManageAccount (
+   UserCode             int                  identity,
+   UserAccount          varchar(20)          null,
+   NiChen               varchar(30)          null,
+   ManageTel            varchar(15)          null,
+   ManagePwd            varchar(36)          null,
+   ManageName           varchar(30)          null,
+   Gender               tinyint              null,
+   BirthDay             datetime             null,
+   HeadImg              varchar(50)          null,
+   PosCodes             varchar(100)         null,
+   PosNames             varchar(200)         null,
+   PosType              varchar(50)          null,
+   MyRecoCode           varchar(20)          null,
+   RecoCode             varchar(20)          null,
+   AreaCode             varchar(20)          null,
+   ProCode              varchar(20)          null,
+   AreaName             varchar(20)          null,
+   ProName              varchar(20)          null,
+   CityName             varchar(20)          null,
+   CityCode             varchar(20)          null,
+   ShowOrder            int                  null,
+   CurState             tinyint              null,
+   Creater              varchar(20)          null,
+   PubTime              datetime             null,
+   constraint PK_YL_MANAGEACCOUNT primary key (UserCode)
+)
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '管理架构账号信息',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '用户编号',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'UserCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '用户账号',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'UserAccount'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '昵称',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'NiChen'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '手机号',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ManageTel'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '密码',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ManagePwd'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '姓名',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ManageName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '性别',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'Gender'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '出生日期',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'BirthDay'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '头像',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'HeadImg'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '职位码(多个)',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'PosCodes'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '职位名称',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'PosNames'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '职位类型',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'PosType'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '我的邀请码（发展渠道）',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'MyRecoCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '推荐码',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'RecoCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '所属大区编码',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'AreaCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '所属省份编码',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ProCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '大区名称',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'AreaName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '省份名称',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ProName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '城市名称',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'CityName'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '所属城市编码',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'CityCode'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '显示顺序',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'ShowOrder'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '当前状态',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'CurState'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '操作员',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'Creater'
+go
+
+declare @CurrentUser sysname
+select @CurrentUser = user_name()
+execute sp_addextendedproperty 'MS_Description', 
+   '操作时间',
+   'user', @CurrentUser, 'table', 'yl_ManageAccount', 'column', 'PubTime'
+go
+

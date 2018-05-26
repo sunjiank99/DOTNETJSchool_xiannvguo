@@ -1,0 +1,14 @@
+declare @pass nvarchar(36)
+set @pass='123456'
+declare @MD5_pass nvarchar(36)
+select @MD5_pass=sys.fn_VarBinToHexStr(hashbytes('MD5',@pass))
+print @MD5_pass
+
+declare @MD5_pass2 nvarchar(36)
+select @MD5_pass2=sys.fn_VarBinToHexStr(hashbytes('MD5',N'123456'))
+print @MD5_pass2
+
+
+
+
+

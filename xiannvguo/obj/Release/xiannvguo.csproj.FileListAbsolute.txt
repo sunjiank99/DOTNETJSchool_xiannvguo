@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\bin\Release\xiannvguo.exe.config
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\bin\Release\xiannvguo.exe
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\bin\Release\xiannvguo.pdb
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.altercheck.resources
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.GoodsView.resources
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.LoginWindows.resources
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.Properties.Resources.resources
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.setTime.resources
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.exe
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.pdb
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\bin\Release\xiannvguo.exe.manifest
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\bin\Release\xiannvguo.application
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.exe.manifest
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.application
+C:\Users\Administrator\Desktop\xiannvguo\xiannvguo\obj\Release\xiannvguo.csprojResolveAssemblyReference.cache

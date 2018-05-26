@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="xiannvguo.altercheck" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAQAAAAACAAABAAAACAAAACAAAIAAgABGABAAAAAAA=</HashCode>
+      <FileName>altercheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.dataBase" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAAIAQEAAAIAACAAgAAAAAAAAAAAEAAAAgAAA=</HashCode>
+      <FileName>dataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.GoodsView" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ATASAhBBoCAIgBAACACFAAzCIEg4AAAIAHAJEYDQRAI=</HashCode>
+      <FileName>GoodsView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.LoginWindows" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAACAAABCAAACAAAACACAIAAAAAEAAAABAAAA=</HashCode>
+      <FileName>LoginWindows.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.setTime" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAABBAAAACABCBCBgAAAgAAAEgACAAAAAI=</HashCode>
+      <FileName>setTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xiannvguo.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="xiannvguo.info" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAIAAAAAAAAAAFACAAAAAAAAAIAAAAAAAAAgI=</HashCode>
+      <FileName>dataBase.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="xiannvguo.Log_Order_info" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAAAAAAAgAEACAAAAAAAAAAEAAAAAAAAQI=</HashCode>
+      <FileName>dataBase.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="xiannvguo.Time" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>GoodsView.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
